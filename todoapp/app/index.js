@@ -22,9 +22,7 @@ const App = () => {
             // If editing a todo, update it instead of adding a new one
             setTodos((prevTodos) =>
                 prevTodos.map((todo) =>
-                    todo.id === editingTodo.id
-                        ? { ...todo, text: todoText }
-                        : todo
+                    todo.id === editingTodo.id ? { ...todo, text: todoText } : todo
                 )
             );
             setEditingTodo(null);
@@ -60,7 +58,11 @@ const App = () => {
                 value={todoText}
                 onChangeText={(text) => setTodoText(text)}
             />
-            <Button title={editingTodo ? 'Edit Task' : 'Add Task'} onPress={addTodo} />
+            <Button
+                title={editingTodo ? 'Edit Task' : 'Add Task'}
+                onPress={addTodo}
+                color="#007AFF" // Change the color of the "Add Task" button
+            />
             <FlatList
                 style={styles.list}
                 data={todos}
@@ -68,8 +70,16 @@ const App = () => {
                 renderItem={({ item }) => (
                     <View style={styles.todo}>
                         <Text style={styles.todoText}>{item.text}</Text>
-                        <Button title="Edit" onPress={() => editTodo(item.id)} />
-                        <Button title="Delete" onPress={() => deleteTodo(item.id)} />
+                        <Button
+                            title="Edit"
+                            onPress={() => editTodo(item.id)}
+                            color="#4CAF50" // Change the color of the "Edit" button
+                        />
+                        <Button
+                            title="Delete"
+                            onPress={() => deleteTodo(item.id)}
+                            color="#FF5722" // Change the color of the "Delete" button
+                        />
                     </View>
                 )}
             />
