@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "name": "movieapp",
+    "slug": "movieapp",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "cdfd6832-7507-4f1c-9734-dfad88f4d897"
+      }
+    },
+    "android": {
+      "package": "com.rohit_chauhan.movieapp"
+    }
+  }
+}
