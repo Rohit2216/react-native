@@ -23,16 +23,16 @@ const Login = ({ navigation }) => {
 
       const responseData = await response.json();
 
-      if (response.ok) {
-        // Login was successful, navigate to the home screen or perform other actions
-        navigation.navigate('Home');
+      if (responseData.message === 'Login successful') {
+        // Login was successful, navigate to the Home screen
+        navigation.navigate('Home'); // Use the name of the screen, not the file path
         alert('Login successful');
       } else {
-        setError(responseData.message); // Set the error message received from the server
+        setError('Invalid email or password'); // Set the error message received from the server
       }
     } catch (error) {
       console.error('Login error:', error);
-      setError('An error occurred during login'); // Set the error message
+      setError('Login successfull'); // Set the error message
     }
   };
 

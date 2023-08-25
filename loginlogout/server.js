@@ -24,11 +24,13 @@ try {
 app.post('/register', (req, res) => {
   const { username, email, password } = req.body;
 
-  const userExists = users.some((user) => user.username === username || user.email === email);
-  if (userExists) {
-    return res.status(400).json({ message: 'Username or email already exists' });
+  // Check if the email is already registered
+  const emailExists = users.some((user) => user.email === email);
+  if (emailExists) {
+    return res.status(400).json({ message: 'Email already exists' });
   }
 
+  // Hash the password before storing it
   const hashedPassword = bcrypt.hashSync(password, 10);
 
   const newUser = {
